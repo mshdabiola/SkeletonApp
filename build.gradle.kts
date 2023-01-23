@@ -31,3 +31,28 @@ versionCatalogUpdate {
         keepUnusedPlugins.set(true)
     }
 }
+
+
+
+tasks.create("add_spot"){
+    val proj=project.rootDir
+
+  //  doFirst{
+        print("add spotless to git")
+        val gitHooksDirectory = File("$proj/.git/hooks/")
+        if (!gitHooksDirectory.exists()) gitHooksDirectory.mkdirs()
+        File("$proj/.git/hooks", "pre-commit").writeText(
+            """
+    #!/bin/bash
+    echo "Running spotless check"
+    ./gradlew spotlessApply --init-script gradle/init.gradle.kts
+"""
+        )
+
+        exec {
+            commandLine("chmod","+x", ".git/hooks/pre-commit")
+        }
+
+  //  }
+
+}
