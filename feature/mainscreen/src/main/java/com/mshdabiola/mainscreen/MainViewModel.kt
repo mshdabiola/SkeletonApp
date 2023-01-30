@@ -24,9 +24,9 @@ class MainViewModel
 
     val mainState = modelRepository
         .getModels()
-        .asResult()
-        .stateIn(scope = viewModelScope,
-            started = SharingStarted.WhileSubscribed(3000), initialValue = MainState.Loading)
+//        .asResult()
+//        .stateIn(scope = viewModelScope,
+//            started = SharingStarted.WhileSubscribed(3000), initialValue = MainState.Loading)
 
      fun insert(model : Model){
         viewModelScope.launch(Dispatchers.IO) {

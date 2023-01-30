@@ -10,7 +10,7 @@ android {
     //Todo(add seriallization)
 }
 dependencies{
-    implementation(project(":core:testing"))
+    testImplementation(project(":core:testing"))
 
     implementation(libs.ktor.client.core)
     implementation(libs.ktor.client.android)

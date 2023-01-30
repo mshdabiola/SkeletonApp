@@ -47,6 +47,7 @@ class TestModelRepository : ModelRepository {
 //    }
 
     override suspend fun insertModel(model: Model) {
+        modelResourcesFlow.tryEmit(listOf(model))
     }
 
     override fun getModels(): Flow<List<Model>> {
