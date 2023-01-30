@@ -6,3 +6,7 @@ plugins {
 android {
     namespace = "com.mshdabiola.data"
 }
+dependencies{
+    implementation(project(":core:model"))
+    implementation(project(":core:database"))
+}
