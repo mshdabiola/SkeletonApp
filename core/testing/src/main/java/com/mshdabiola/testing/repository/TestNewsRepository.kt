@@ -19,6 +19,7 @@ package com.mshdabiola.testing.repository
 import com.mshdabiola.data.repository.ModelRepository
 import com.mshdabiola.model.Model
 import kotlinx.coroutines.channels.BufferOverflow
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 
 class TestModelRepository : ModelRepository {
@@ -44,7 +45,11 @@ class TestModelRepository : ModelRepository {
 //    fun sendNewsResources(newsResources: List<NewsResource>) {
 //        newsResourcesFlow.tryEmit(newsResources)
 //    }
-    override fun insertModel() {
 
+    override suspend fun insertModel(model: Model) {
+    }
+
+    override fun getModels(): Flow<List<Model>> {
+        return modelResourcesFlow
     }
 }
