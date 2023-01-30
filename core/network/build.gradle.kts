@@ -7,6 +7,7 @@ plugins {
 
 android {
     namespace = "com.mshdabiola.network"
+    //Todo(add seriallization)
 }
 dependencies{
     implementation(project(":core:testing"))

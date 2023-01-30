@@ -1,7 +1,5 @@
 package com.mshdabiola.network
 
-import io.ktor.client.HttpClient
-import io.ktor.client.engine.HttpClientEngine
 import io.ktor.client.engine.mock.MockEngine
 import io.ktor.client.engine.mock.respond
 import io.ktor.http.HttpHeaders
@@ -18,7 +16,7 @@ import org.junit.Test
 @OptIn(ExperimentalCoroutinesApi::class)
 class KtorNetworkTest {
 
-    private lateinit var ktorNetwork: KtorNetwork
+    private lateinit var ktorNetwork: NetworkSource
 
     @Before
     fun setUp(){
@@ -30,7 +28,7 @@ class KtorNetworkTest {
             )
         }
        val client=Client.get(engine)
-        ktorNetwork= KtorNetwork(client)
+        ktorNetwork= NetworkSource(client)
     }
     @After
     fun close(){

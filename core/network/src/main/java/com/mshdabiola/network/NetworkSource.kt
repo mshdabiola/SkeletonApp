@@ -7,7 +7,7 @@ import io.ktor.client.call.body
 import io.ktor.client.plugins.resources.get
 import javax.inject.Inject
 
-class KtorNetwork @Inject constructor(
+class NetworkSource @Inject constructor(
     private val httpClient : HttpClient
 ) {
 
