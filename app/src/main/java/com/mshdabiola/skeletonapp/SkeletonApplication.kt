@@ -5,12 +5,11 @@ import dagger.hilt.android.HiltAndroidApp
 import timber.log.Timber
 
 @HiltAndroidApp
-class SkeletonApplication : Application(){
+class SkeletonApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
         Timber.plant(Timber.DebugTree())
         Timber.e("log on app create")
-
     }
 }

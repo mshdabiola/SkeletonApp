@@ -3,13 +3,12 @@ package com.mshdabiola.datastore
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
-import org.junit.Assert.*
-
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TemporaryFolder
-
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class UserPreferenceDataSourceTest {
@@ -18,22 +17,22 @@ class UserPreferenceDataSourceTest {
 
     @get:Rule
     val temporaryFolder: TemporaryFolder = TemporaryFolder.builder().assureDeletion().build()
+
     @Before
     fun setUp() {
-
-        userPreferenceDataSource= UserPreferenceDataSource(
-            temporaryFolder.testUserPreferenceDataStore())
+        userPreferenceDataSource = UserPreferenceDataSource(
+            temporaryFolder.testUserPreferenceDataStore(),
+        )
     }
 
-
     @Test
-    fun addTopic() = runTest{
+    fun addTopic() = runTest {
         userPreferenceDataSource.addTopic(676)
-        assertEquals(userPreferenceDataSource.userData.first().topicIds.first(),674)
+        assertEquals(userPreferenceDataSource.userData.first().topicIds.first(), 674)
     }
 
     @Test
-    fun remove()= runTest {
+    fun remove() = runTest {
         userPreferenceDataSource.addTopic(58)
         userPreferenceDataSource.remove(58)
 
@@ -45,5 +44,3 @@ class UserPreferenceDataSourceTest {
     fun setInteger() {
     }
 }
-
-

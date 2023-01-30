@@ -8,8 +8,8 @@ import com.mshdabiola.model.Model
 data class ModelEntity(
     @PrimaryKey(true)
     val id: Long,
-    val name:String
+    val name: String,
 )
 
-fun ModelEntity.asModel()=Model(id,name)
-fun Model.asModelEntity()=ModelEntity(id, name)
+fun ModelEntity.asModel() = Model(id, name)
+fun Model.asModelEntity() = ModelEntity(id, name)

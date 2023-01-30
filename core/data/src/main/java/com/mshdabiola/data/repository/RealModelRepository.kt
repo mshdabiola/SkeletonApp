@@ -9,13 +9,13 @@ import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class RealModelRepository @Inject constructor(
-    private val modelDao: ModelDao
+    private val modelDao: ModelDao,
 ) : ModelRepository {
-    override suspend fun insertModel(model : Model) {
+    override suspend fun insertModel(model: Model) {
         modelDao.upsert(model.asModelEntity())
     }
 
     override fun getModels(): Flow<List<Model>> {
-       return modelDao.getModel().map { modelEntities -> modelEntities.map { it.asModel() } }
+        return modelDao.getModel().map { modelEntities -> modelEntities.map { it.asModel() } }
     }
 }

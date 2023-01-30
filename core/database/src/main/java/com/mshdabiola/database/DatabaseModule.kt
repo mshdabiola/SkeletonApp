@@ -32,13 +32,11 @@ object DatabaseModule {
     @Provides
     @Singleton
     fun databaseProvider(
-        @ApplicationContext context: Context
+        @ApplicationContext context: Context,
     ): SkeletonDatabase {
         return Room.databaseBuilder(context, SkeletonDatabase::class.java, "skeletonDb.db")
             .build()
         //        return Room.inMemoryDatabaseBuilder(context,LudoDatabase::class.java,)
         //            .build()
     }
-
-
 }

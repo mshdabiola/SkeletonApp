@@ -5,10 +5,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import io.ktor.client.HttpClient
-import io.ktor.client.engine.HttpClientEngine
 import io.ktor.client.engine.android.Android
-import io.ktor.client.engine.android.AndroidClientEngine
-import io.ktor.client.engine.android.AndroidEngineConfig
 import io.ktor.client.plugins.HttpRequestRetry
 import io.ktor.client.plugins.UserAgent
 import io.ktor.client.plugins.cache.HttpCache
@@ -20,35 +17,31 @@ import io.ktor.client.plugins.resources.Resources
 import io.ktor.serialization.kotlinx.json.json
 import java.io.File
 
-
 @InstallIn(SingletonComponent::class)
 @Module
 object NetworkModule {
 
     @Provides
-    fun clientProvider ()= HttpClient(Android){
+    fun clientProvider() = HttpClient(Android) {
         install(Resources)
-        install(Logging){
-
+        install(Logging) {
         }
-        install(ContentNegotiation){
+        install(ContentNegotiation) {
             json()
         }
         defaultRequest {
             this.url("")
         }
-        install(UserAgent){
-            agent="my app"
+        install(UserAgent) {
+            agent = "my app"
         }
-        install(HttpRequestRetry){
+        install(HttpRequestRetry) {
             retryOnServerErrors(5)
             exponentialDelay()
         }
-        install(HttpCache){
-            val file= File.createTempFile("abiola","tem")
+        install(HttpCache) {
+            val file = File.createTempFile("abiola", "tem")
             publicStorage(FileStorage(file))
         }
-
     }
 }
-

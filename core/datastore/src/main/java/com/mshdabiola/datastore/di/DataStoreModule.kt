@@ -17,7 +17,6 @@ import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.coroutineScope
 import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
@@ -29,14 +28,14 @@ object DataStoreModule {
     fun provideUserPreferenceDataStore(
         @ApplicationContext context: Context,
         @Dispatcher(AppDispatchers.IO) ioDispatcher: CoroutineDispatcher,
-        userPreferenceSerializer: UserPreferenceSerializer
-    ):DataStore<UserPreferences>{
+        userPreferenceSerializer: UserPreferenceSerializer,
+    ): DataStore<UserPreferences> {
         return DataStoreFactory.create(
-          serializer =   userPreferenceSerializer,
-            scope   = CoroutineScope(ioDispatcher+ SupervisorJob()),
-            migrations = listOf(IntToStringMigration)
-        ){
-           context.dataStoreFile("user_preference.pd")
+            serializer = userPreferenceSerializer,
+            scope = CoroutineScope(ioDispatcher + SupervisorJob()),
+            migrations = listOf(IntToStringMigration),
+        ) {
+            context.dataStoreFile("user_preference.pd")
         }
     }
 }

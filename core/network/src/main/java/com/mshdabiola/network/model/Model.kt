@@ -4,6 +4,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Model(
-    val id :Long,
-    val name:String
+    val id: Long,
+    val name: String,
 )

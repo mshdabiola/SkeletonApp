@@ -3,13 +3,11 @@ package com.mshdabiola.mainscreen
 import androidx.lifecycle.SavedStateHandle
 import app.cash.turbine.test
 import com.mshdabiola.data.repository.ModelRepository
-import com.mshdabiola.data.repository.NetworkRepository
 import com.mshdabiola.model.Model
 import com.mshdabiola.testing.MainDispatcherRule
 import com.mshdabiola.testing.repository.TestModelRepository
 import kotlinx.coroutines.test.runTest
-import org.junit.Assert.*
-
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -17,17 +15,18 @@ import org.junit.Test
 class MainViewModelTest {
 
     @get:Rule
-    val mainDispatcherRule=MainDispatcherRule()
+    val mainDispatcherRule = MainDispatcherRule()
 
     lateinit var modelRepository: ModelRepository
-    lateinit var mainViewModel : MainViewModel
+    lateinit var mainViewModel: MainViewModel
+
     @Before
     fun setUp() {
-        modelRepository=TestModelRepository()
+        modelRepository = TestModelRepository()
 
-        mainViewModel= MainViewModel(
+        mainViewModel = MainViewModel(
             savedStateHandle = SavedStateHandle(initialState = mapOf()),
-            modelRepository = modelRepository
+            modelRepository = modelRepository,
         )
     }
 
@@ -36,12 +35,12 @@ class MainViewModelTest {
     }
 
     @Test
-    fun insert() = runTest{
-        mainViewModel.insert(Model(1,"old"))
+    fun insert() = runTest {
+        mainViewModel.insert(Model(1, "old"))
         mainViewModel
             .mainState
             .test {
-               assertEquals(2,awaitItem().first().id)
+                assertEquals(2, awaitItem().first().id)
             }
     }
 }

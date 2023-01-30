@@ -16,9 +16,8 @@
 
 package com.mshdabiola.database.util
 
-import androidx.room.TypeConverter
 //
-//class InstantConverter {
+// class InstantConverter {
 //    @TypeConverter
 //    fun longToInstant(value: Long?): Instant? =
 //        value?.let(Instant::fromEpochMilliseconds)
@@ -26,5 +25,5 @@ import androidx.room.TypeConverter
 //    @TypeConverter
 //    fun instantToLong(instant: Instant?): Long? =
 //        instant?.toEpochMilliseconds()
-//}
+// }
 //

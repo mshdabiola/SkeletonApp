@@ -29,16 +29,13 @@ class ModelDaoTest {
 
     @Test
     fun upsertTest() = runBlocking {
-
     }
 
     @Test
     fun deleteTest() = runBlocking {
-
     }
 
     @Test
     fun deleteByIdTest() = runBlocking {
     }
-
 }

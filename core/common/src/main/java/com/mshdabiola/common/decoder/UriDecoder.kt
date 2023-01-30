@@ -17,7 +17,6 @@
 package com.mshdabiola.common.decoder
 
 import android.net.Uri
-import com.mshdabiola.common.decoder.StringDecoder
 import javax.inject.Inject
 
 class UriDecoder @Inject constructor() : StringDecoder {

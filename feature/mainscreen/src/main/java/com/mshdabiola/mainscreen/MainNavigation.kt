@@ -6,12 +6,11 @@ import androidx.navigation.compose.composable
 
 const val mainNavigationRoute = "main_route"
 
-
 const val mainRoute = "main_route"
 
 fun NavGraphBuilder.mainScreen(onBack: () -> Unit) {
     composable(
-        route = mainRoute
+        route = mainRoute,
     ) {
         MainScreen(onBack = onBack)
     }

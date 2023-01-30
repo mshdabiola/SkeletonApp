@@ -11,6 +11,7 @@ interface ModelDao {
 
     @Upsert
     fun upsert(modelEntity: ModelEntity)
+
     @Query("SELECT * FROM model_table")
-    fun getModel():Flow<List<ModelEntity>>
+    fun getModel(): Flow<List<ModelEntity>>
 }

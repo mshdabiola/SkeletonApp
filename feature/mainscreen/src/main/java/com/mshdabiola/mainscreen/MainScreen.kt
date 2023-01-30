@@ -1,6 +1,5 @@
 package com.mshdabiola.mainscreen
 
-
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -19,7 +18,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 
-
 @Composable
 internal fun MainScreen(viewModel: MainViewModel = hiltViewModel(), onBack: () -> Unit) {
     MainScreen(back = onBack)
@@ -28,8 +26,8 @@ internal fun MainScreen(viewModel: MainViewModel = hiltViewModel(), onBack: () -
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun MainScreen(
-    mainState: MainState=MainState.Loading,
-    back: () -> Unit = {}
+    mainState: MainState = MainState.Loading,
+    back: () -> Unit = {},
 ) {
     Scaffold(
         topBar = {
@@ -41,16 +39,17 @@ internal fun MainScreen(
                 },
                 title = {
                     Text(text = "name")
-                }
+                },
             )
-        }
+        },
     ) { paddingValues ->
         Column(Modifier.padding(paddingValues)) {
             TextField(
                 modifier = Modifier.fillMaxWidth(),
                 value = "",
-                placeholder = { Text(text = "Enter text")},
-                onValueChange = {})
+                placeholder = { Text(text = "Enter text") },
+                onValueChange = {},
+            )
             Button(onClick = { /*TODO*/ }) {
                 Text(text = "Add Test")
             }

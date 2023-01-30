@@ -12,12 +12,11 @@ class UserPreferenceSerializer @Inject constructor() : Serializer<UserPreference
         get() = UserPreferences.getDefaultInstance()
 
     override suspend fun readFrom(input: InputStream): UserPreferences {
-       return try {
-           UserPreferences.parseFrom(input)
-       }catch (e : InvalidProtocolBufferException){
-           throw CorruptionException("can not read proto",e)
-       }
-
+        return try {
+            UserPreferences.parseFrom(input)
+        } catch (e: InvalidProtocolBufferException) {
+            throw CorruptionException("can not read proto", e)
+        }
     }
 
     override suspend fun writeTo(t: UserPreferences, output: OutputStream) {

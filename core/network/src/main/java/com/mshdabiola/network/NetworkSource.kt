@@ -8,10 +8,10 @@ import io.ktor.client.plugins.resources.get
 import javax.inject.Inject
 
 class NetworkSource @Inject constructor(
-    private val httpClient : HttpClient
+    private val httpClient: HttpClient,
 ) {
 
-    suspend fun get():Model{
-      return httpClient.get(Articles3.New()).body()
+    suspend fun get(): Model {
+        return httpClient.get(Articles3.New()).body()
     }
 }

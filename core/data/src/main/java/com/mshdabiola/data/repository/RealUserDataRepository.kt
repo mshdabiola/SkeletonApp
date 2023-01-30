@@ -4,8 +4,8 @@ import com.mshdabiola.datastore.UserPreferenceDataSource
 import javax.inject.Inject
 
 class RealUserDataRepository @Inject constructor(
-    private val userPreference : UserPreferenceDataSource
-) : UserDataRepository{
+    private val userPreference: UserPreferenceDataSource,
+) : UserDataRepository {
     override suspend fun setTopic(id: Int) {
         userPreference.addTopic(id)
     }

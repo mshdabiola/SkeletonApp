@@ -16,8 +16,8 @@
 
 package com.mshdabiola.common.appdispatchers.di
 
-import com.mshdabiola.common.appdispatchers.Dispatcher
 import com.mshdabiola.common.appdispatchers.AppDispatchers.IO
+import com.mshdabiola.common.appdispatchers.Dispatcher
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
