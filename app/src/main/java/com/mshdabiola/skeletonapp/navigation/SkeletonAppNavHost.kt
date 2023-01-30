@@ -12,6 +12,6 @@ fun SkeletonAppNavHost(
     startDestination: String = mainNavigationRoute,
 ) {
     NavHost(navController = navController, startDestination = startDestination) {
-        mainScreen()
+        mainScreen(onBack = {})
     }
 }
