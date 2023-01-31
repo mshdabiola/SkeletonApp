@@ -1,5 +1,6 @@
 package com.mshdabiola.database.dao
 
+import androidx.paging.PagingSource
 import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.Upsert
@@ -14,4 +15,6 @@ interface ModelDao {
 
     @Query("SELECT * FROM model_table")
     fun getModel(): Flow<List<ModelEntity>>
+    @Query("SELECT * FROM model_table")
+    fun getNewModel():PagingSource<Int,ModelEntity>
 }

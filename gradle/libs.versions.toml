@@ -64,6 +64,8 @@ turbine = "0.8.0"
 ktor ="2.2.2"
 ktorKotlinxSerializationJson="1.0.1"
 timber="5.0.1"
+paging="3.1.1"
+pagingCompose="1.0.0-alpha17"
 
 [libraries]
 accompanist-flowlayout = { module = "com.google.accompanist:accompanist-flowlayout", version.ref = "accompanist" }
@@ -142,6 +144,10 @@ retrofit-kotlin-serialization = { module = "com.jakewharton.retrofit:retrofit2-k
 room-compiler = "androidx.room:room-compiler:2.5.0"
 room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
+room-paging = { module = "androidx.room:room-paging", version.ref = "room" }
+paging-runtime = { module = "androidx.paging:paging-runtime", version.ref = "paging" }
+paging-common = { module = "androidx.paging:paging-common", version.ref = "paging" }
+paging-compose = { module = "androidx.paging:paging-compose", version.ref = "pagingCompose" }
 turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine" }
 ktor-client-core={module="io.ktor:ktor-client-core",version.ref="ktor"}
 ktor-client-android={module="io.ktor:ktor-client-android",version.ref="ktor"}
@@ -190,6 +196,7 @@ hilt-bundle = [
 room-bundle = [
     "room-ktx",
     "room-runtime",
+    "room-paging"
 ]
 
 [plugins]
