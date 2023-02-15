@@ -9,7 +9,9 @@ class SkeletonApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        Timber.plant(Timber.DebugTree())
-        Timber.e("log on app create")
+        if(packageName.contains("debug")) {
+            Timber.plant(Timber.DebugTree())
+            Timber.e("log on app create")
+        }
     }
 }
