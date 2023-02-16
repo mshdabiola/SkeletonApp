@@ -8,4 +8,5 @@ android {
 }
 dependencies{
     testImplementation(project(":core:testing"))
+    implementation(libs.firebase.analytics.kts)
 }
