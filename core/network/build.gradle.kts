@@ -7,7 +7,9 @@ plugins {
 
 android {
     namespace = "com.mshdabiola.network"
-    //Todo(add seriallization)
+    defaultConfig {
+        consumerProguardFiles("consumer-proguard-rules.pro")
+    }
 }
 dependencies{
     testImplementation(project(":core:testing"))
