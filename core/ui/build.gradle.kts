@@ -6,3 +6,6 @@ plugins {
 android {
     namespace = "com.mshdabiola.ui"
 }
+dependencies{
+    implementation(libs.kotlinx.collection.immutable)
+}
