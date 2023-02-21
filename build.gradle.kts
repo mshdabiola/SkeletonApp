@@ -14,6 +14,7 @@ plugins {
     alias(libs.plugins.little)
 
 }
+
 //./gradlew versionCatalogUpdate
 versionCatalogUpdate {
     // sort the catalog by key (default is true)
@@ -56,3 +57,6 @@ versionCatalogUpdate {
 //
 //}
 //.gradlew add_spot
+
+//./gradlew assembleDebug -PenableComposeCompilerReports=true
+// ./gradlew assembleDebug -PenableComposeCompilerMetrics=true
