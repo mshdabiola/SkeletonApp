@@ -2,6 +2,7 @@ package com.mshdabiola.mainscreen
 
 import androidx.activity.ComponentActivity
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import org.junit.Before
 import org.junit.Rule
@@ -25,7 +26,8 @@ class MainScreenKtTest {
         }
 
         composeTestRule
-            .onNodeWithText("Add Test")
+//            .onNodeWithText("Add Test")
+            .onNodeWithTag("button")
             .assertExists()
     }
 }
