@@ -13,7 +13,7 @@ android {
     namespace ="com.mshdabiola.skeletonapp"
 
     defaultConfig {
-        applicationId = "com.mshdabiola.xnotepad"
+        applicationId = "com.mshdabiola.skeletonapp"
     }
 
     buildTypes {
