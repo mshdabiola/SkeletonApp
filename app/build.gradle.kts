@@ -14,6 +14,7 @@ android {
 
     defaultConfig {
         applicationId = "com.mshdabiola.skeletonapp"
+        testInstrumentationRunner="com.mshdabiola.testing.TestRunner"
     }
 
     buildTypes {
@@ -70,5 +71,6 @@ dependencies {
     //testImplementation (libs.junit4)
     //androidTestImplementation (libs.bundles.android.test.bundle)
     //debugImplementation (libs.bundles.compose.debug.bundle)
+    androidTestImplementation(project(":core:testing"))
 
 }
