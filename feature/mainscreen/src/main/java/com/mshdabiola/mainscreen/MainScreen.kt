@@ -18,7 +18,11 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTagsAsResourceId
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -35,10 +39,10 @@ internal fun MainScreen(viewModel: MainViewModel = hiltViewModel(), onBack: () -
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalComposeUiApi::class)
 @Composable
 internal fun MainScreen(
-    mainState: MainState,
+    mainState: MainState=MainState(),
     back: () -> Unit = {},
 ) {
     val snackbarHostState= remember {
@@ -49,6 +53,7 @@ internal fun MainScreen(
     })
     NotifySnacker(snackHostState = snackbarHostState, notifys = mainState.messages)
     Scaffold(
+        modifier=Modifier.semantics { this.testTagsAsResourceId=true },
         topBar = {
             TopAppBar(
                 navigationIcon = {
@@ -70,7 +75,9 @@ internal fun MainScreen(
                 placeholder = { Text(text = "Enter text") },
                 onValueChange = {},
             )
-            Button(onClick = {}) {
+            Button(
+                modifier = Modifier.testTag("button"),
+                onClick = {}) {
                 Text(text = "Add Test")
             }
         }
