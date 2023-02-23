@@ -13,7 +13,8 @@ android {
     namespace ="com.mshdabiola.skeletonapp"
 
     defaultConfig {
-        applicationId = "com.mshdabiola.xnotepad"
+        applicationId = "com.mshdabiola.skeletonapp"
+        testInstrumentationRunner="com.mshdabiola.testing.TestRunner"
     }
 
     buildTypes {
@@ -60,6 +61,7 @@ dependencies {
     //implementation(libs.bundles.compose.bundle)
     implementation (project(":core:designsystem"))
    implementation (project(":feature:mainscreen"))
+    implementation (project(":core:worker"))
     implementation(libs.androidx.profileinstaller)
     //implementation(libs.kotlinx.collection.immutable)
     implementation(libs.androidx.core.splashscreen)
@@ -70,5 +72,6 @@ dependencies {
     //testImplementation (libs.junit4)
     //androidTestImplementation (libs.bundles.android.test.bundle)
     //debugImplementation (libs.bundles.compose.debug.bundle)
+    androidTestImplementation(project(":core:testing"))
 
 }

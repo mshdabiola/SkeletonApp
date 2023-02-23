@@ -7,7 +7,7 @@ import com.mshdabiola.model.Model
 @Entity(tableName = "model_table")
 data class ModelEntity(
     @PrimaryKey(true)
-    val id: Long,
+    val id: Long?,
     val name: String,
 )
 

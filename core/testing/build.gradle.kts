@@ -20,6 +20,9 @@ dependencies {
     api(libs.androidx.test.runner)
     api(libs.androidx.test.rules)
     api(libs.androidx.compose.ui.test)
+    api(libs.hilt.android.testing)
+    api(libs.paging.common)
+    api(libs.paging.testing)
 
     debugApi(libs.androidx.compose.ui.testManifest)
 }

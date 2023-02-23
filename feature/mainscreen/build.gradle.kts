@@ -10,3 +10,6 @@ android {
         }
     }
 }
+dependencies{
+    implementation(libs.paging.compose)
+}

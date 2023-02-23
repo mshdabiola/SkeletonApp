@@ -22,6 +22,7 @@ import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.getByType
+import org.gradle.kotlin.dsl.withType
 
 class AndroidApplicationConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
@@ -35,6 +36,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                 configureKotlinAndroid(this)
                 compileSdk=33
                 defaultConfig.targetSdk = 33
+                compileSdkPreview = "UpsideDownCake"
                 defaultConfig.minSdk =24
                 defaultConfig.versionName="0.1.0"
                 defaultConfig.versionCode=1
@@ -47,6 +49,12 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                // configureFlavors(this)
 
 
+            }
+
+            tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+                kotlinOptions {
+                    jvmTarget = "17"
+                }
             }
 
         }

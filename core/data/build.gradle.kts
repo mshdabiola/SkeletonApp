@@ -12,4 +12,6 @@ dependencies{
     implementation(project(":core:datastore"))
     implementation(project(":core:network"))
     testImplementation(project(":core:testing"))
+    implementation(libs.paging.runtime)
+    implementation(libs.paging.common)
 }
