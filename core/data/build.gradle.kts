@@ -13,5 +13,5 @@ dependencies{
     implementation(project(":core:network"))
     testImplementation(project(":core:testing"))
     implementation(libs.paging.runtime)
-    testImplementation(libs.paging.common)
+    implementation(libs.paging.common)
 }
