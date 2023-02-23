@@ -16,6 +16,7 @@
 
 package com.mshdabiola.testing.repository
 
+import androidx.paging.PagingData
 import com.mshdabiola.data.repository.ModelRepository
 import com.mshdabiola.model.Model
 import kotlinx.coroutines.channels.BufferOverflow
@@ -52,5 +53,9 @@ class TestModelRepository : ModelRepository {
 
     override fun getModels(): Flow<List<Model>> {
         return modelResourcesFlow
+    }
+
+    override fun getModelPaging(): Flow<PagingData<Model>> {
+        TODO("Not yet implemented")
     }
 }

@@ -1,5 +1,8 @@
 package com.mshdabiola.data.repository
 
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.map
 import com.mshdabiola.database.dao.ModelDao
 import com.mshdabiola.database.model.asModel
 import com.mshdabiola.database.model.asModelEntity
@@ -18,4 +21,16 @@ class RealModelRepository @Inject constructor(
     override fun getModels(): Flow<List<Model>> {
         return modelDao.getModel().map { modelEntities -> modelEntities.map { it.asModel() } }
     }
+
+
+    override fun getModelPaging() =
+        Pager(config = PagingConfig(pageSize = 10))
+        {
+            modelDao.getNewModel()
+        }
+            .flow
+            .map {
+                it.map { it.asModel() }
+            }
+
 }
