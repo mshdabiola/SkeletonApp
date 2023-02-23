@@ -3,6 +3,8 @@ package com.mshdabiola.mainscreen
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.paging.cachedIn
+import androidx.paging.map
 import com.mshdabiola.data.repository.ModelRepository
 import com.mshdabiola.model.Model
 import com.mshdabiola.ui.data.Notify
@@ -12,6 +14,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import timber.log.Timber
@@ -25,7 +28,9 @@ class MainViewModel
 ) : ViewModel() {
 
     val modelState = modelRepository
-        .getModels()
+        .getModelPaging()
+        .map { it.map { it.asModelUiState() } }
+        .cachedIn(viewModelScope)
 //        .asResult()
 //        .stateIn(scope = viewModelScope,
 //            started = SharingStarted.WhileSubscribed(3000), initialValue = MainState.Loading)
@@ -41,6 +46,10 @@ class MainViewModel
             addNotify("remove model")
         }
 
+    }
+
+    fun addName(name:String){
+        insert(Model(name=name))
     }
     fun insert(model: Model) {
         viewModelScope.launch(Dispatchers.IO) {
